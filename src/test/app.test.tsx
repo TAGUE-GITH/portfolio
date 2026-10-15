@@ -13,11 +13,11 @@ const renderSite = () =>
 beforeEach(() => localStorage.clear())
 
 describe('Portfolio', () => {
-  it('presente les 4 projets avec leur site et leur code', () => {
+  it('presente les 5 projets avec leur site et leur code', () => {
     localStorage.setItem('portfolio_lang', 'fr')
     renderSite()
 
-    for (const name of ['FloreEvent', 'MilaTech Management', 'DevManager', 'ShoeManager']) {
+    for (const name of ['DITS Group', 'FloreEvent', 'MilaTech Management', 'DevManager', 'ShoeManager']) {
       const project = screen.getByRole('article', { name })
       expect(within(project).getByRole('link', { name: /Voir en ligne/ })).toHaveAttribute('href', expect.stringMatching(/^https:\/\/.+\.vercel\.app$/))
       expect(within(project).getByRole('link', { name: /Code source/ })).toHaveAttribute('href', expect.stringMatching(/^https:\/\/github\.com\/TAGUE-GITH\//))

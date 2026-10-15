@@ -23,6 +23,7 @@ export const CONTACT = {
 }
 
 const STACKS = {
+  dits: ['Java 21', 'Spring Boot 4', 'Spring Security', 'JWT', 'PostgreSQL', 'React 19', 'Vite', 'Docker', 'GitHub Actions'],
   floreevent: ['Java 21', 'Spring Boot 4', 'Spring Security', 'PostgreSQL', 'Flyway', 'React 19', 'TypeScript', 'Tailwind', 'Stripe', 'Docker', 'GitHub Actions'],
   milatech: ['Java 21', 'Spring Boot 4', 'Spring Security', 'PostgreSQL', 'React 19', 'TypeScript', 'Tailwind', 'OpenPDF', 'Brevo', 'Docker'],
   devmanager: ['Java 21', 'Spring Boot 4', 'JWT', 'PostgreSQL', 'React 19', 'React Native', 'Expo', 'Docker', 'GitHub Actions'],
@@ -30,6 +31,7 @@ const STACKS = {
 }
 
 const LINKS = {
+  dits: { site: 'https://dits-frontend.vercel.app', code: 'https://github.com/TAGUE-GITH/DITS_Group' },
   floreevent: { site: 'https://flore-event.vercel.app', code: 'https://github.com/TAGUE-GITH/FloreEvent' },
   milatech: { site: 'https://milatech-one.vercel.app', code: 'https://github.com/TAGUE-GITH/MilaTech' },
   devmanager: { site: 'https://devmanager-five.vercel.app', code: 'https://github.com/TAGUE-GITH/DevManager' },
@@ -49,7 +51,7 @@ export const CONTENT = {
       cta: 'Voir mes projets',
       contact: 'Me contacter',
       stats: [
-        { value: '4', label: 'applications en ligne' },
+        { value: '5', label: 'applications en ligne' },
         { value: '600+', label: 'tests automatisés' },
         { value: '100 %', label: 'déployé en intégration continue' },
       ],
@@ -63,6 +65,22 @@ export const CONTENT = {
       highlights: 'Points forts',
     },
     list: [
+      {
+        id: 'dits',
+        name: 'DITS Group',
+        context: 'Stage · conseil en bases de données · Livry-sur-Seine',
+        summary:
+          'Plateforme web d’une société de conseil en systèmes d’information : site vitrine, espace client avec documents partagés, recrutement avec dépôt de CV et tableau de bord d’administration pour gérer tous les contenus.',
+        highlights: [
+          'Connexion sécurisée par jetons JWT, rôles client et administrateur',
+          'Documents, CV et images conservés en base malgré l’hébergement gratuit',
+          'Audit de sécurité : secrets retirés du code, comptes de test neutralisés',
+          'Intégration continue : serveur, site et image Docker testés à chaque envoi',
+        ],
+        stack: STACKS.dits,
+        accent: '#b4881a',
+        links: LINKS.dits,
+      },
       {
         id: 'floreevent',
         name: 'FloreEvent',
@@ -192,7 +210,7 @@ export const CONTENT = {
       cta: 'See my projects',
       contact: 'Contact me',
       stats: [
-        { value: '4', label: 'applications in production' },
+        { value: '5', label: 'applications in production' },
         { value: '600+', label: 'automated tests' },
         { value: '100%', label: 'shipped with continuous integration' },
       ],
@@ -206,6 +224,22 @@ export const CONTENT = {
       highlights: 'Highlights',
     },
     list: [
+      {
+        id: 'dits',
+        name: 'DITS Group',
+        context: 'Internship · database consulting · Livry-sur-Seine, France',
+        summary:
+          'Web platform for an IT consulting company: showcase website, customer area with shared documents, recruitment with CV upload and an admin dashboard to manage all content.',
+        highlights: [
+          'Secure sign-in with JWT tokens, customer and admin roles',
+          'Documents, CVs and images kept in the database despite free hosting',
+          'Security audit: secrets removed from the code, test accounts disabled',
+          'Continuous integration: server, website and Docker image tested on every push',
+        ],
+        stack: STACKS.dits,
+        accent: '#b4881a',
+        links: LINKS.dits,
+      },
       {
         id: 'floreevent',
         name: 'FloreEvent',
