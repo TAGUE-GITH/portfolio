@@ -45,4 +45,13 @@ describe('Portfolio', () => {
     expect(screen.getByRole('link', { name: /Écrire un e-mail/ })).toHaveAttribute('href', 'mailto:taguefranck3@gmail.com')
     expect(screen.getAllByRole('link', { name: /LinkedIn/ })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/tague-franck')
   })
+
+  it('indique les contrats recherches et donne l attestation du diplome', () => {
+    localStorage.setItem('portfolio_lang', 'fr')
+    renderSite()
+    for (const kind of ['CDI', 'Alternance', 'Stage de fin d’études']) expect(screen.getByText(kind)).toBeInTheDocument()
+    expect(screen.getByText('À partir de février 2027')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Attestation ENIC-NARIC/ })).toHaveAttribute('href', '/attestation-enic-naric-diplome-ingenieur.pdf')
+    expect(screen.getByRole('link', { name: /Voir l’attestation/ })).toHaveAttribute('href', '/attestation-enic-naric-diplome-ingenieur.pdf')
+  })
 })

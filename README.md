@@ -1,7 +1,7 @@
 # Franck Tague · Portfolio
 
-Portfolio de **Franck Tague**, développeur full-stack Java, Python et React, en recherche d'une alternance de 24 mois
-à partir d'octobre 2026.
+Portfolio de **Franck Tague**, développeur full-stack Java, Python et React, ingénieur (diplôme reconnu niveau 7 par ENIC-NARIC France),
+disponible pour un CDI ou une alternance de 12 à 24 mois dès maintenant, et pour un stage de fin d'études à partir de février 2027.
 
 Il présente cinq applications en ligne réalisées pour de vraies entreprises :
 

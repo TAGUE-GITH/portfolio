@@ -14,7 +14,12 @@ export type Project = {
 }
 
 export type Experience = { role: string; company: string; place: string; period: string; text: string; stack: string }
-export type Degree = { title: string; school: string; period: string }
+export type Degree = { title: string; school: string; period: string; note?: string; proof?: { label: string; href: string } }
+
+/** Ce que je recherche : type de contrat, date et precision. */
+export type Search = { kind: string; when: string; text: string; proof?: { label: string; href: string } }
+
+export const ATTESTATION = '/attestation-enic-naric-diplome-ingenieur.pdf'
 
 export const CONTACT = {
   email: 'taguefranck3@gmail.com',
@@ -43,11 +48,11 @@ export const CONTENT = {
   fr: {
     nav: { projects: 'Projets', skills: 'Compétences', journey: 'Parcours', contact: 'Contact' },
     hero: {
-      badge: 'Disponible en alternance · 24 mois dès octobre 2026',
+      badge: 'Disponible dès maintenant · CDI, alternance ou stage de fin d’études',
       hello: 'Bonjour, je suis',
       title: 'Développeur full-stack Java · Python · React',
       text: 'Je conçois des applications web complètes, de l’analyse des besoins à la mise en ligne : API sécurisées, interfaces soignées sur ordinateur et téléphone, et tests automatisés.',
-      school: 'Élève-ingénieur Expert en architecture et développement logiciel · 3IL Limoges',
+      school: 'Ingénieur en génie informatique (niveau 7, équivalent Master, reconnu par ENIC-NARIC France) · 3IL Limoges',
       cta: 'Voir mes projets',
       contact: 'Me contacter',
       stats: [
@@ -183,7 +188,13 @@ export const CONTENT = {
       ] satisfies Experience[],
       degrees: [
         { title: 'Expert en architecture et développement logiciel', school: '3IL Ingénieurs, Limoges', period: 'Depuis sept. 2025' },
-        { title: 'Diplôme d’ingénieur en génie informatique et télécommunications', school: 'École nationale supérieure polytechnique de Douala', period: '2020 – 2025' },
+        {
+          title: 'Diplôme d’ingénieur en génie informatique et télécommunications',
+          school: 'École nationale supérieure polytechnique de Douala',
+          period: '2020 – 2025',
+          note: 'Reconnu niveau 7 (équivalent Master) par ENIC-NARIC France',
+          proof: { label: 'Voir l’attestation', href: ATTESTATION },
+        },
         { title: 'Licence de mathématiques et informatique', school: 'Université de Yaoundé I', period: '2017 – 2019' },
       ] satisfies Degree[],
       languages: 'Langues : français (langue maternelle), anglais (B1), allemand (débutant)',
@@ -192,7 +203,18 @@ export const CONTENT = {
     contact: {
       kicker: 'Contact',
       title: 'Travaillons ensemble',
-      text: 'Je recherche une alternance de 24 mois à partir d’octobre 2026 en développement logiciel. Écrivez-moi, je réponds rapidement.',
+      text: 'Développement logiciel, full-stack Java, Python et React. Écrivez-moi, je réponds rapidement.',
+      searchTitle: 'Ce que je recherche',
+      searches: [
+        {
+          kind: 'CDI',
+          when: 'Dès maintenant',
+          text: 'Développeur full-stack ou back-end. Diplôme d’ingénieur reconnu niveau 7 (équivalent Master).',
+          proof: { label: 'Attestation ENIC-NARIC', href: ATTESTATION },
+        },
+        { kind: 'Alternance', when: 'Dès maintenant · 12 à 24 mois', text: 'En parallèle de mon cursus Expert en architecture et développement logiciel à 3IL Limoges.' },
+        { kind: 'Stage de fin d’études', when: 'À partir de février 2027', text: 'Développement d’applications web, API sécurisées et tests automatisés.' },
+      ] satisfies Search[],
       email: 'Écrire un e-mail',
       copy: 'Copier l’adresse',
       copied: 'Adresse copiée',
@@ -202,11 +224,11 @@ export const CONTENT = {
   en: {
     nav: { projects: 'Projects', skills: 'Skills', journey: 'Background', contact: 'Contact' },
     hero: {
-      badge: 'Open to a 24-month work-study position from October 2026',
+      badge: 'Available now · permanent job, work-study or final-year internship',
       hello: 'Hi, I’m',
       title: 'Full-stack developer Java · Python · React',
       text: 'I build complete web applications, from requirements analysis to production: secure APIs, polished interfaces on desktop and mobile, and automated tests.',
-      school: 'Software engineering student, software architecture and development · 3IL Limoges',
+      school: 'Computer engineering degree (level 7, Master’s equivalent, recognised by ENIC-NARIC France) · 3IL Limoges',
       cta: 'See my projects',
       contact: 'Contact me',
       stats: [
@@ -342,7 +364,13 @@ export const CONTENT = {
       ] satisfies Experience[],
       degrees: [
         { title: 'Software architecture and development expert programme', school: '3IL Engineering School, Limoges', period: 'Since Sept. 2025' },
-        { title: 'Engineering degree in computer science and telecommunications', school: 'National Advanced School of Engineering, Douala', period: '2020 – 2025' },
+        {
+          title: 'Engineering degree in computer science and telecommunications',
+          school: 'National Advanced School of Engineering, Douala',
+          period: '2020 – 2025',
+          note: 'Recognised at level 7 (Master’s equivalent) by ENIC-NARIC France',
+          proof: { label: 'See the certificate', href: ATTESTATION },
+        },
         { title: 'Bachelor’s degree in mathematics and computer science', school: 'University of Yaoundé I', period: '2017 – 2019' },
       ] satisfies Degree[],
       languages: 'Languages: French (native), English (B1), German (beginner)',
@@ -351,7 +379,18 @@ export const CONTENT = {
     contact: {
       kicker: 'Contact',
       title: 'Let’s work together',
-      text: 'I’m looking for a 24-month work-study position in software development starting October 2026. Drop me a line, I reply quickly.',
+      text: 'Software development, full-stack Java, Python and React. Drop me a line, I reply quickly.',
+      searchTitle: 'What I’m looking for',
+      searches: [
+        {
+          kind: 'Permanent job (CDI)',
+          when: 'Available now',
+          text: 'Full-stack or back-end developer. Engineering degree recognised at level 7 (Master’s equivalent).',
+          proof: { label: 'ENIC-NARIC certificate', href: ATTESTATION },
+        },
+        { kind: 'Work-study', when: 'Available now · 12 to 24 months', text: 'Alongside my software architecture and development programme at 3IL Limoges.' },
+        { kind: 'Final-year internship', when: 'From February 2027', text: 'Web application development, secure APIs and automated testing.' },
+      ] satisfies Search[],
       email: 'Send an e-mail',
       copy: 'Copy address',
       copied: 'Address copied',

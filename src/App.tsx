@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Briefcase, Check, Code2, Copy, Download, GraduationCap, Languages, Mail, MapPin, Menu, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, BadgeCheck, Briefcase, CalendarCheck, Check, Code2, Copy, Download, FileText, GraduationCap, Languages, Mail, MapPin, Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { CONTACT } from './content'
 import type { Project } from './content'
@@ -320,6 +320,18 @@ function Journey() {
                 <p className="text-sm font-semibold text-brand-600">{degree.period}</p>
                 <h4 className="mt-1 font-bold text-ink">{degree.title}</h4>
                 <p className="text-sm text-slate-500">{degree.school}</p>
+                {degree.note && (
+                  <p className="mt-2 flex items-start gap-1.5 text-sm font-semibold text-emerald-700">
+                    <BadgeCheck className="mt-0.5 size-4 shrink-0" aria-hidden />
+                    {degree.note}
+                  </p>
+                )}
+                {degree.proof && (
+                  <a href={degree.proof.href} target="_blank" rel="noreferrer" className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700">
+                    <FileText className="size-4" aria-hidden />
+                    {degree.proof.label}
+                  </a>
+                )}
               </li>
             ))}
           </ol>
@@ -352,11 +364,30 @@ function Contact() {
   return (
     <section id="contact" className="relative isolate overflow-hidden bg-ink py-24 text-white sm:py-32">
       <div className="absolute -bottom-40 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full bg-brand-600/25 blur-3xl" aria-hidden />
-      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
         <Portrait className="mx-auto mb-6 size-24" />
         <p className="text-sm font-bold tracking-widest text-glow uppercase">{t.contact.kicker}</p>
         <h2 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">{t.contact.title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-slate-300">{t.contact.text}</p>
+        <h3 className="mt-10 text-sm font-bold tracking-widest text-slate-400 uppercase">{t.contact.searchTitle}</h3>
+        <ul className="mt-4 grid gap-4 text-left sm:grid-cols-3">
+          {t.contact.searches.map((search) => (
+            <li key={search.kind} className="flex flex-col rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
+              <p className="text-lg font-bold text-white">{search.kind}</p>
+              <p className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-emerald-300">
+                <CalendarCheck className="size-4 shrink-0" aria-hidden />
+                {search.when}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-300">{search.text}</p>
+              {search.proof && (
+                <a href={search.proof.href} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-glow hover:text-white">
+                  <FileText className="size-4" aria-hidden />
+                  {search.proof.label}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
         <p className="mt-8 text-xl font-semibold break-all text-white sm:text-2xl">{CONTACT.email}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-ink transition hover:bg-brand-50">
