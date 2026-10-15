@@ -42,7 +42,7 @@ describe('Portfolio', () => {
     localStorage.setItem('portfolio_lang', 'fr')
     renderSite()
     expect(screen.getAllByRole('img', { name: 'Franck Tague' })[0]).toHaveAttribute('src', '/franck-tague.webp')
-    expect(screen.getByRole('link', { name: /Écrire un e-mail/ })).toHaveAttribute('href', 'mailto:taguefranck3@gmail.com')
+    expect(screen.getByRole('link', { name: /Écrire un e-mail/ })).toHaveAttribute('href', 'mailto:taguefranck0@gmail.com')
     expect(screen.getAllByRole('link', { name: /LinkedIn/ })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/tague-franck')
   })
 

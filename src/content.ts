@@ -22,7 +22,7 @@ export type Search = { kind: string; when: string; text: string; proof?: { label
 export const ATTESTATION = '/attestation-enic-naric-diplome-ingenieur.pdf'
 
 export const CONTACT = {
-  email: 'taguefranck3@gmail.com',
+  email: 'taguefranck0@gmail.com',
   linkedin: 'https://www.linkedin.com/in/tague-franck',
   github: 'https://github.com/TAGUE-GITH',
 }
