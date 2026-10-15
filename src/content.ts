@@ -31,7 +31,7 @@ const STACKS = {
 }
 
 const LINKS = {
-  dits: { site: 'https://dits-frontend.vercel.app', code: 'https://github.com/TAGUE-GITH/DITS_Group' },
+  dits: { site: 'https://dits-group.vercel.app', code: 'https://github.com/TAGUE-GITH/DITS_Group' },
   floreevent: { site: 'https://flore-event.vercel.app', code: 'https://github.com/TAGUE-GITH/FloreEvent' },
   milatech: { site: 'https://milatech-one.vercel.app', code: 'https://github.com/TAGUE-GITH/MilaTech' },
   devmanager: { site: 'https://devmanager-five.vercel.app', code: 'https://github.com/TAGUE-GITH/DevManager' },
