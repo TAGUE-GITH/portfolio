@@ -16,6 +16,15 @@ function Monogram({ className = '' }: { className?: string }) {
   )
 }
 
+/** Photo de profil, cerclee du degrade du portfolio. */
+function Portrait({ className = '' }: { className?: string }) {
+  return (
+    <span className={`block shrink-0 rounded-full bg-gradient-to-br from-brand-400 to-glow p-[3px] shadow-lg shadow-brand-900/40 ${className}`}>
+      <img src="/franck-tague.webp" alt="Franck Tague" width={640} height={640} className="size-full rounded-full object-cover" />
+    </span>
+  )
+}
+
 function LangSwitch() {
   const { lang, setLang } = useLang()
   return (
@@ -96,8 +105,11 @@ function Hero() {
             </span>
             {t.hero.badge}
           </p>
-          <p className="mt-7 text-lg text-slate-300">{t.hero.hello}</p>
-          <h1 className="mt-1 text-5xl font-extrabold tracking-tight sm:text-7xl">
+          <div className="mt-8 flex items-center gap-4">
+            <Portrait className="size-20 sm:size-24" />
+            <p className="text-lg text-slate-300">{t.hero.hello}</p>
+          </div>
+          <h1 className="mt-3 text-5xl font-extrabold tracking-tight sm:text-7xl">
             Franck <span className="bg-gradient-to-r from-brand-300 to-glow bg-clip-text text-transparent">Tague</span>
           </h1>
           <p className="mt-4 text-xl font-semibold text-white sm:text-2xl">{t.hero.title}</p>
@@ -341,6 +353,7 @@ function Contact() {
     <section id="contact" className="relative isolate overflow-hidden bg-ink py-24 text-white sm:py-32">
       <div className="absolute -bottom-40 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full bg-brand-600/25 blur-3xl" aria-hidden />
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <Portrait className="mx-auto mb-6 size-24" />
         <p className="text-sm font-bold tracking-widest text-glow uppercase">{t.contact.kicker}</p>
         <h2 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">{t.contact.title}</h2>
         <p className="mx-auto mt-5 max-w-xl text-lg text-slate-300">{t.contact.text}</p>

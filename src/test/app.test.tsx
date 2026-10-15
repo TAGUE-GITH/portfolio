@@ -38,9 +38,10 @@ describe('Portfolio', () => {
     expect(localStorage.getItem('portfolio_lang')).toBe('en')
   })
 
-  it('donne les moyens de contact', () => {
+  it('donne les moyens de contact, avec la photo', () => {
     localStorage.setItem('portfolio_lang', 'fr')
     renderSite()
+    expect(screen.getAllByRole('img', { name: 'Franck Tague' })[0]).toHaveAttribute('src', '/franck-tague.webp')
     expect(screen.getByRole('link', { name: /Écrire un e-mail/ })).toHaveAttribute('href', 'mailto:taguefranck3@gmail.com')
     expect(screen.getAllByRole('link', { name: /LinkedIn/ })[0]).toHaveAttribute('href', 'https://www.linkedin.com/in/tague-franck')
   })
