@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+/* Identite du portfolio : encre profonde, accent indigo et touche cyan */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #0b1020;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-glow: #22d3ee;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-slate-50 text-ink antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Grille legere derriere l'en-tete */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 30% 20%, black 30%, transparent 75%);
+}
