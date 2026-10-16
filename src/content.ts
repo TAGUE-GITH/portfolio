@@ -17,9 +17,16 @@ export type Experience = { role: string; company: string; place: string; period:
 export type Degree = { title: string; school: string; period: string; note?: string; proof?: { label: string; href: string } }
 
 /** Ce que je recherche : type de contrat, date et precision. */
-export type Search = { kind: string; when: string; text: string; proof?: { label: string; href: string } }
+export type Search = { kind: string; when: string; text: string; cv: { label: string; href: string }; proof?: { label: string; href: string } }
 
 export const ATTESTATION = '/attestation-enic-naric-diplome-ingenieur.pdf'
+
+/** Un CV par type de contrat recherche (PDF d'une page, lisible par les logiciels de tri). */
+export const CV = {
+  cdi: '/cv/CV_Franck_Tague_CDI.pdf',
+  alternance: '/cv/CV_Franck_Tague_Alternance.pdf',
+  stage: '/cv/CV_Franck_Tague_Stage_fin_etudes.pdf',
+}
 
 export const CONTACT = {
   email: 'taguefranck0@gmail.com',
@@ -210,10 +217,21 @@ export const CONTENT = {
           kind: 'CDI',
           when: 'Dès maintenant',
           text: 'Développeur full-stack ou back-end. Diplôme d’ingénieur reconnu niveau 7 (équivalent Master).',
+          cv: { label: 'Télécharger le CV', href: CV.cdi },
           proof: { label: 'Attestation ENIC-NARIC', href: ATTESTATION },
         },
-        { kind: 'Alternance', when: 'Dès maintenant · 12 à 24 mois', text: 'En parallèle de mon cursus Expert en architecture et développement logiciel à 3IL Limoges.' },
-        { kind: 'Stage de fin d’études', when: 'À partir de février 2027', text: 'Développement d’applications web, API sécurisées et tests automatisés.' },
+        {
+          kind: 'Alternance',
+          when: 'Dès maintenant · 12 à 24 mois',
+          text: 'En parallèle de mon cursus Expert en architecture et développement logiciel à 3IL Limoges.',
+          cv: { label: 'Télécharger le CV', href: CV.alternance },
+        },
+        {
+          kind: 'Stage de fin d’études',
+          when: 'À partir de février 2027',
+          text: 'Développement d’applications web, API sécurisées et tests automatisés.',
+          cv: { label: 'Télécharger le CV', href: CV.stage },
+        },
       ] satisfies Search[],
       email: 'Écrire un e-mail',
       copy: 'Copier l’adresse',
@@ -386,10 +404,21 @@ export const CONTENT = {
           kind: 'Permanent job (CDI)',
           when: 'Available now',
           text: 'Full-stack or back-end developer. Engineering degree recognised at level 7 (Master’s equivalent).',
+          cv: { label: 'Download the CV (French)', href: CV.cdi },
           proof: { label: 'ENIC-NARIC certificate', href: ATTESTATION },
         },
-        { kind: 'Work-study', when: 'Available now · 12 to 24 months', text: 'Alongside my software architecture and development programme at 3IL Limoges.' },
-        { kind: 'Final-year internship', when: 'From February 2027', text: 'Web application development, secure APIs and automated testing.' },
+        {
+          kind: 'Work-study',
+          when: 'Available now · 12 to 24 months',
+          text: 'Alongside my software architecture and development programme at 3IL Limoges.',
+          cv: { label: 'Download the CV (French)', href: CV.alternance },
+        },
+        {
+          kind: 'Final-year internship',
+          when: 'From February 2027',
+          text: 'Web application development, secure APIs and automated testing.',
+          cv: { label: 'Download the CV (French)', href: CV.stage },
+        },
       ] satisfies Search[],
       email: 'Send an e-mail',
       copy: 'Copy address',

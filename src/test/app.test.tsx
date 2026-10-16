@@ -54,4 +54,16 @@ describe('Portfolio', () => {
     expect(screen.getByRole('link', { name: /Attestation ENIC-NARIC/ })).toHaveAttribute('href', '/attestation-enic-naric-diplome-ingenieur.pdf')
     expect(screen.getByRole('link', { name: /Voir l’attestation/ })).toHaveAttribute('href', '/attestation-enic-naric-diplome-ingenieur.pdf')
   })
+
+  it('propose un CV a telecharger pour chaque contrat recherche', () => {
+    localStorage.setItem('portfolio_lang', 'fr')
+    renderSite()
+    const links = screen.getAllByRole('link', { name: /Télécharger le CV/ })
+    expect(links.map((link) => link.getAttribute('href'))).toEqual([
+      '/cv/CV_Franck_Tague_CDI.pdf',
+      '/cv/CV_Franck_Tague_Alternance.pdf',
+      '/cv/CV_Franck_Tague_Stage_fin_etudes.pdf',
+    ])
+    for (const link of links) expect(link).toHaveAttribute('download')
+  })
 })

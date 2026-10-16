@@ -378,9 +378,17 @@ function Contact() {
                 <CalendarCheck className="size-4 shrink-0" aria-hidden />
                 {search.when}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300">{search.text}</p>
+              <p className="mt-3 mb-4 text-sm leading-relaxed text-slate-300">{search.text}</p>
+              <a
+                href={search.cv.href}
+                download
+                className="mt-auto inline-flex w-fit items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-ink transition hover:bg-slate-200"
+              >
+                <Download className="size-4" aria-hidden />
+                {search.cv.label}
+              </a>
               {search.proof && (
-                <a href={search.proof.href} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-glow hover:text-white">
+                <a href={search.proof.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 pt-3 text-sm font-semibold text-glow hover:text-white">
                   <FileText className="size-4" aria-hidden />
                   {search.proof.label}
                 </a>
