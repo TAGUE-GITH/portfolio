@@ -30,6 +30,9 @@ export const CV = {
 
 export const CONTACT = {
   email: 'taguefranck0@gmail.com',
+  phone: '06 59 90 93 37',
+  tel: 'tel:+33659909337',
+  whatsapp: 'https://wa.me/33659909337',
   linkedin: 'https://www.linkedin.com/in/tague-franck',
   github: 'https://github.com/TAGUE-GITH',
 }
@@ -236,6 +239,8 @@ export const CONTENT = {
       email: 'Écrire un e-mail',
       copy: 'Copier l’adresse',
       copied: 'Adresse copiée',
+      call: 'Appeler',
+      whatsapp: 'WhatsApp',
     },
     footer: 'Conçu et développé par Franck Tague',
   },
@@ -423,6 +428,8 @@ export const CONTENT = {
       email: 'Send an e-mail',
       copy: 'Copy address',
       copied: 'Address copied',
+      call: 'Call',
+      whatsapp: 'WhatsApp',
     },
     footer: 'Designed and built by Franck Tague',
   },

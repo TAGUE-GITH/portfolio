@@ -1,9 +1,9 @@
-import { ArrowRight, ArrowUpRight, BadgeCheck, Briefcase, CalendarCheck, Check, Code2, Copy, Download, FileText, GraduationCap, Languages, Mail, MapPin, Menu, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, BadgeCheck, Briefcase, CalendarCheck, Check, Code2, Copy, Download, FileText, GraduationCap, Languages, Mail, MapPin, Menu, Phone, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { CONTACT } from './content'
 import type { Project } from './content'
 import { BrowserFrame, PhoneFrame } from './components/Frames'
-import { GithubIcon, LinkedinIcon } from './components/Icons'
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from './components/Icons'
 import { useLang } from './lang'
 
 const SECTIONS = ['projects', 'skills', 'journey', 'contact'] as const
@@ -397,6 +397,7 @@ function Contact() {
           ))}
         </ul>
         <p className="mt-8 text-xl font-semibold break-all text-white sm:text-2xl">{CONTACT.email}</p>
+        <p className="mt-2 text-lg font-semibold text-slate-300">{CONTACT.phone}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-ink transition hover:bg-brand-50">
             <Mail className="size-4" aria-hidden />
@@ -406,6 +407,14 @@ function Contact() {
             {copied ? <Check className="size-4 text-emerald-300" aria-hidden /> : <Copy className="size-4" aria-hidden />}
             {copied ? t.contact.copied : t.contact.copy}
           </button>
+          <a href={CONTACT.tel} className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold ring-1 ring-white/25 transition hover:bg-white/10">
+            <Phone className="size-4" aria-hidden />
+            {t.contact.call}
+          </a>
+          <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 font-semibold text-ink transition hover:bg-[#1ebe5a]">
+            <WhatsappIcon className="size-4" />
+            {t.contact.whatsapp}
+          </a>
         </div>
         <div className="mt-8 flex justify-center gap-3">
           <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-300 ring-1 ring-white/15 transition hover:bg-white/10 hover:text-white">

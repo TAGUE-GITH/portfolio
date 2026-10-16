@@ -66,4 +66,12 @@ describe('Portfolio', () => {
     ])
     for (const link of links) expect(link).toHaveAttribute('download')
   })
+
+  it('donne le numero pour appeler et pour WhatsApp', () => {
+    localStorage.setItem('portfolio_lang', 'fr')
+    renderSite()
+    expect(screen.getByText('06 59 90 93 37')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Appeler/ })).toHaveAttribute('href', 'tel:+33659909337')
+    expect(screen.getByRole('link', { name: /WhatsApp/ })).toHaveAttribute('href', 'https://wa.me/33659909337')
+  })
 })
